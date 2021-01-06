@@ -3,11 +3,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("ethAbi", [], factory);
+		define("vapAbi", [], factory);
 	else if(typeof exports === 'object')
-		exports["ethAbi"] = factory();
+		exports["vapAbi"] = factory();
 	else
-		root["ethAbi"] = factory();
+		root["vapAbi"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -5333,7 +5333,7 @@ var BN = __webpack_require__(1);
 var numberToBN = __webpack_require__(10);
 var keccak256 = __webpack_require__(9).keccak_256;
 
-// from ethereumjs-util
+// from vaporyjs-util
 function stripZeros(aInput) {
   var a = aInput; // eslint-disable-line
   var first = a[0]; // eslint-disable-line
@@ -5367,8 +5367,8 @@ function hexOrBuffer(valueInput, name) {
   var value = valueInput; // eslint-disable-line
   if (!Buffer.isBuffer(value)) {
     if (!isHexString(value)) {
-      var error = new Error(name ? '[ethjs-abi] invalid ' + name : '[ethjs-abi] invalid hex or buffer, must be a prefixed alphanumeric even length hex string');
-      error.reason = '[ethjs-abi] invalid hex string, hex must be prefixed and alphanumeric (e.g. 0x023..)';
+      var error = new Error(name ? '[vapjs-abi] invalid ' + name : '[vapjs-abi] invalid hex or buffer, must be a prefixed alphanumeric even length hex string');
+      error.reason = '[vapjs-abi] invalid hex string, hex must be prefixed and alphanumeric (e.g. 0x023..)';
       error.value = value;
       throw error;
     }
@@ -5399,7 +5399,7 @@ function getKeys(params, key, allowEmpty) {
   var result = []; // eslint-disable-line
 
   if (!Array.isArray(params)) {
-    throw new Error('[ethjs-abi] while getting keys, invalid params value ' + JSON.stringify(params));
+    throw new Error('[vapjs-abi] while getting keys, invalid params value ' + JSON.stringify(params));
   }
 
   for (var i = 0; i < params.length; i++) {
@@ -5408,7 +5408,7 @@ function getKeys(params, key, allowEmpty) {
     if (allowEmpty && !value) {
       value = '';
     } else if (typeof value !== 'string') {
-      throw new Error('[ethjs-abi] while getKeys found invalid ABI data structure, type value not string');
+      throw new Error('[vapjs-abi] while getKeys found invalid ABI data structure, type value not string');
     }
     result.push(value);
   }
@@ -5483,7 +5483,7 @@ function coderFixedBytes(length) {
     },
     decode: function decodeFixedBytes(data, offset) {
       if (data.length !== 0 && data.length < offset + 32) {
-        throw new Error('[ethjs-abi] while decoding fixed bytes, invalid bytes data length: ' + length);
+        throw new Error('[vapjs-abi] while decoding fixed bytes, invalid bytes data length: ' + length);
       }
 
       return {
@@ -5499,7 +5499,7 @@ var coderAddress = {
     var value = valueInput; // eslint-disable-line
     var result = new Buffer(32); // eslint-disable-line
     if (!isHexString(value, 20)) {
-      throw new Error('[ethjs-abi] while encoding address, invalid address value, not alphanumeric 20 byte hex string');
+      throw new Error('[vapjs-abi] while encoding address, invalid address value, not alphanumeric 20 byte hex string');
     }
     value = hexOrBuffer(value);
     result.fill(0);
@@ -5514,7 +5514,7 @@ var coderAddress = {
       };
     }
     if (data.length !== 0 && data.length < offset + 32) {
-      throw new Error('[ethjs-abi] while decoding address data, invalid address data, invalid byte length ' + data.length);
+      throw new Error('[vapjs-abi] while decoding address data, invalid address data, invalid byte length ' + data.length);
     }
     return {
       consumed: 32,
@@ -5533,13 +5533,13 @@ function encodeDynamicBytesHelper(value) {
 
 function decodeDynamicBytesHelper(data, offset) {
   if (data.length !== 0 && data.length < offset + 32) {
-    throw new Error('[ethjs-abi] while decoding dynamic bytes data, invalid bytes length: ' + data.length + ' should be less than ' + (offset + 32));
+    throw new Error('[vapjs-abi] while decoding dynamic bytes data, invalid bytes length: ' + data.length + ' should be less than ' + (offset + 32));
   }
 
   var length = uint256Coder.decode(data, offset).value; // eslint-disable-line
   length = length.toNumber();
   if (data.length !== 0 && data.length < offset + 32 + length) {
-    throw new Error('[ethjs-abi] while decoding dynamic bytes data, invalid bytes length: ' + data.length + ' should be less than ' + (offset + 32 + length));
+    throw new Error('[vapjs-abi] while decoding dynamic bytes data, invalid bytes length: ' + data.length + ' should be less than ' + (offset + 32 + length));
   }
 
   return {
@@ -5579,7 +5579,7 @@ function coderArray(coder, lengthInput) {
       var length = lengthInput; // eslint-disable-line
 
       if (!Array.isArray(value)) {
-        throw new Error('[ethjs-abi] while encoding array, invalid array data, not type Object (Array)');
+        throw new Error('[vapjs-abi] while encoding array, invalid array data, not type Object (Array)');
       }
 
       if (length === -1) {
@@ -5588,7 +5588,7 @@ function coderArray(coder, lengthInput) {
       }
 
       if (length !== value.length) {
-        throw new Error('[ethjs-abi] while encoding array, size mismatch array length ' + length + ' does not equal ' + value.length);
+        throw new Error('[vapjs-abi] while encoding array, size mismatch array length ' + length + ' does not equal ' + value.length);
       }
 
       value.forEach(function (resultValue) {
@@ -5639,7 +5639,7 @@ var paramTypePart = new RegExp(/^((u?int|bytes)([0-9]*)|(address|bool|string)|(\
 function getParamCoder(typeInput) {
   var type = typeInput; // eslint-disable-line
   var coder = null; // eslint-disable-line
-  var invalidTypeErrorMessage = '[ethjs-abi] while getting param coder (getParamCoder) type value ' + JSON.stringify(type) + ' is either invalid or unsupported by ethjs-abi.';
+  var invalidTypeErrorMessage = '[vapjs-abi] while getting param coder (getParamCoder) type value ' + JSON.stringify(type) + ' is either invalid or unsupported by vapjs-abi.';
 
   while (type) {
     var part = type.match(paramTypePart); // eslint-disable-line
@@ -5656,7 +5656,7 @@ function getParamCoder(typeInput) {
         }
         var intSize = parseInt(part[3] || 256); // eslint-disable-line
         if (intSize === 0 || intSize > 256 || intSize % 8 !== 0) {
-          throw new Error('[ethjs-abi] while getting param coder for type ' + type + ', invalid ' + prefix + '<N> width: ' + type);
+          throw new Error('[vapjs-abi] while getting param coder for type ' + type + ', invalid ' + prefix + '<N> width: ' + type);
         }
 
         coder = coderNumber(intSize / 8, prefix === 'int');
@@ -5683,7 +5683,7 @@ function getParamCoder(typeInput) {
         if (part[3]) {
           var size = parseInt(part[3]); // eslint-disable-line
           if (size === 0 || size > 32) {
-            throw new Error('[ethjs-abi] while getting param coder for prefix bytes, invalid type ' + type + ', size ' + size + ' should be 0 or greater than 32');
+            throw new Error('[vapjs-abi] while getting param coder for prefix bytes, invalid type ' + type + ', size ' + size + ' should be 0 or greater than 32');
           }
           coder = coderFixedBytes(size);
         } else {
@@ -5770,7 +5770,7 @@ function Result() {}
 
 function encodeParams(types, values) {
   if (types.length !== values.length) {
-    throw new Error('[ethjs-abi] while encoding params, types/values mismatch, Your contract requires ' + types.length + ' types (arguments), and you passed in ' + values.length);
+    throw new Error('[vapjs-abi] while encoding params, types/values mismatch, Your contract requires ' + types.length + ' types (arguments), and you passed in ' + values.length);
   }
 
   var parts = [];
@@ -6955,4 +6955,4 @@ module.exports = function(module) {
 /******/ ])
 });
 ;
-//# sourceMappingURL=ethjs-abi.js.map
+//# sourceMappingURL=vapjs-abi.js.map

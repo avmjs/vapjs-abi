@@ -1,17 +1,17 @@
 # User Guide
 
-All information for developers using `ethjs-abi` should consult this document.
+All information for developers using `vapjs-abi` should consult this document.
 
 ## Install
 
 ```
-npm install --save ethjs-abi
+npm install --save vapjs-abi
 ```
 
 ## Usage
 
 ```js
-const abi = require('ethjs-abi');
+const abi = require('vapjs-abi');
 const SimpleStoreABI = [{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"get","outputs":[{"name":"storeValue","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_newValue","type":"uint256"},{"indexed":false,"name":"_sender","type":"address"}],"name":"SetComplete","type":"event"}];
 
 
@@ -75,7 +75,7 @@ This module returns `BN`s for all quantity values. However, the module supports 
 
 ## Safe Object Returns (decoding)
 
-Instead of returning an array of params as decoded from the method, `ethjs-abi` will return a safe object that allows you to both get a value at it's return index or optionally, its name.
+Instead of returning an array of params as decoded from the method, `vapjs-abi` will return a safe object that allows you to both get a value at it's return index or optionally, its name.
 
 For example:
 
@@ -89,26 +89,26 @@ For example:
 
 ## Why BN.js?
 
-`ethjs` has made a policy of using `BN.js` across all of its repositories. Here are some of the reasons why:
+`vapjs` has made a policy of using `BN.js` across all of its repositories. Here are some of the reasons why:
 
   1. lighter than alternatives (BigNumber.js)
   2. faster than most alternatives, see [benchmarks](https://github.com/indutny/bn.js/issues/89)
-  3. used by the Ethereum foundation across all [`ethereumjs`](https://github.com/ethereumjs) repositories
-  4. is already used by a critical JS dependency of many ethereum packages, see package [`elliptic`](https://github.com/indutny/elliptic)
-  5. purposefully **does not support decimals or floats numbers** (for greater precision), remember, the Ethereum blockchain cannot and will not support float values or decimal numbers.
+  3. used by the Vapereum foundation across all [`vaporyjs`](https://github.com/vaporycojs) repositories
+  4. is already used by a critical JS dependency of many vapory packages, see package [`elliptic`](https://github.com/indutny/elliptic)
+  5. purposefully **does not support decimals or floats numbers** (for greater precision), remember, the Vapereum blockchain cannot and will not support float values or decimal numbers.
 
 ## Browser Builds
 
-`ethjs` provides production distributions for all of its modules that are ready for use in the browser right away. Simply include either `dist/ethjs-abi.js` or `dist/ethjs-abi.min.js` directly into an HTML file to start using this module. Note, an `ethAbi` object is made available globally.
+`vapjs` provides production distributions for all of its modules that are ready for use in the browser right away. Simply include either `dist/vapjs-abi.js` or `dist/vapjs-abi.min.js` directly into an HTML file to start using this module. Note, an `vapAbi` object is made available globally.
 
 ```html
-<script type="text/javascript" src="ethjs-abi.min.js"></script>
+<script type="text/javascript" src="vapjs-abi.min.js"></script>
 <script type="text/javascript">
-new ethAbi(...);
+new vapAbi(...);
 </script>
 ```
 
-Note, even though `ethjs` should have transformed and polyfilled most of the requirements to run this module across most modern browsers. You may want to look at an additional polyfill for extra support.
+Note, even though `vapjs` should have transformed and polyfilled most of the requirements to run this module across most modern browsers. You may want to look at an additional polyfill for extra support.
 
 Use a polyfill service such as `Polyfill.io` to ensure complete cross-browser support:
 https://polyfill.io/
@@ -120,29 +120,29 @@ Hash: 492bde711463f9215365
 Version: webpack 2.1.0-beta.15
 Time: 1066ms
            Asset    Size  Chunks             Chunk Names
-    ethjs-abi.js  186 kB       0  [emitted]  main
-ethjs-abi.js.map  228 kB       0  [emitted]  main
+    vapjs-abi.js  186 kB       0  [emitted]  main
+vapjs-abi.js.map  228 kB       0  [emitted]  main
     + 14 hidden modules
 
 Hash: a5dc8d1c909ad22a89ba                                                           
 Version: webpack 2.1.0-beta.15
 Time: 4291ms
            Asset     Size  Chunks             Chunk Names
-ethjs-abi.min.js  83.1 kB       0  [emitted]  main
+vapjs-abi.min.js  83.1 kB       0  [emitted]  main
     + 14 hidden modules
 ```
 
 ## Other Awesome Modules, Tools and Frameworks
 
 ### Foundation
- - [web3.js](https://github.com/ethereum/web3.js) -- the original Ethereum JS swiss army knife **Ethereum Foundation**
- - [ethereumjs](https://github.com/ethereumjs) -- critical ethereum javascript infrastructure **Ethereum Foundation**
- - [browser-solidity](https://ethereum.github.io/browser-solidity) -- an in browser Solidity IDE **Ethereum Foundation**
+ - [web3.js](https://github.com/vaporyco/web3.js) -- the original Vapereum JS swiss army knife **Vapereum Foundation**
+ - [vaporyjs](https://github.com/vaporycojs) -- critical vapory javascript infrastructure **Vapereum Foundation**
+ - [browser-solidity](https://vapory.github.io/browser-solidity) -- an in browser Solidity IDE **Vapereum Foundation**
 
 ### Nodes
-  - [geth](https://github.com/ethereum/go-ethereum) Go-Ethereum
-  - [parity](https://github.com/ethcore/parity) Rust-Ethereum build in Rust
-  - [testrpc](https://github.com/ethereumjs/testrpc) Testing Node (ethereumjs-vm)
+  - [gvap](https://github.com/vaporyco/go-vapory) Go-Vapereum
+  - [parity](https://github.com/ethcore/parity) Rust-Vapereum build in Rust
+  - [testrpc](https://github.com/vaporycojs/testrpc) Testing Node (vaporyjs-vm)
 
 ### Testing
  - [wafr](https://github.com/silentcicero/wafr) -- a super simple Solidity testing framework
@@ -153,11 +153,11 @@ ethjs-abi.min.js  83.1 kB       0  [emitted]  main
  - [contest](https://github.com/DigixGlobal/contest) -- a JS testing framework for contracts
 
 ### Wallets
- - [ethers-wallet](https://github.com/ethers-io/ethers-wallet) -- an amazingly small Ethereum wallet
- - [metamask](https://metamask.io/) -- turns your browser into an Ethereum enabled browser =D
+ - [vapors-wallet](https://github.com/vaporsjs/vapors-wallet) -- an amazingly small Vapereum wallet
+ - [metamask](https://metamask.io/) -- turns your browser into an Vapereum enabled browser =D
 
-## Our Relationship with Ethereum & EthereumJS
+## Our Relationship with Vapereum & VapereumJS
 
- We would like to mention that we are not in any way affiliated with the Ethereum Foundation or `ethereumjs`. However, we love the work they do and work with them often to make Ethereum great! Our aim is to support the Ethereum ecosystem with a policy of diversity, modularity, simplicity, transparency, clarity, optimization and extensibility.
+ We would like to mention that we are not in any way affiliated with the Vapereum Foundation or `vaporyjs`. However, we love the work they do and work with them often to make Vapereum great! Our aim is to support the Vapereum ecosystem with a policy of diversity, modularity, simplicity, transparency, clarity, optimization and extensibility.
 
- Many of our modules use code from `web3.js` and the `ethereumjs-` repositories. We thank the authors where we can in the relevant repositories. We use their code carefully, and make sure all test coverage is ported over and where possible, expanded on.
+ Many of our modules use code from `web3.js` and the `vaporyjs-` repositories. We thank the authors where we can in the relevant repositories. We use their code carefully, and make sure all test coverage is ported over and where possible, expanded on.

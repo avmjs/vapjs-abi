@@ -16,7 +16,7 @@
 
 # 0.1.5 -- replace out sha3
 
-1. Getting rid of `ethjs-sha3` for `js-sha3`
+1. Getting rid of `vapjs-sha3` for `js-sha3`
 
 # 0.1.4 -- config fixes
 
@@ -53,11 +53,11 @@
 2. Better testing coverage
 3. Linting stated
 
-# 0.0.2 -- ethjs-abi
+# 0.0.2 -- vapjs-abi
 
 1. Basic testing
 2. Basic docs
 3. License
 4. linting
 5. basic exports
-6. ethjs-sha3
+6. vapjs-sha3

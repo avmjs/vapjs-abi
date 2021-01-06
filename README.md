@@ -1,36 +1,36 @@
-## ethjs-abi
+## vapjs-abi
 
-Just method and event encoding and decoding from the [`ethers-wallet`](https://github.com/ethers-io/ethers-wallet).
+Just method and event encoding and decoding from the [`vapors-wallet`](https://github.com/vaporsjs/vapors-wallet).
 
 Note, this package is experimental, and is not ready for production use.
 
 <div>
   <!-- Dependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-abi">
-    <img src="https://david-dm.org/ethjs/ethjs-abi.svg"
+  <a href="https://david-dm.org/vapjs/vapjs-abi">
+    <img src="https://david-dm.org/vapjs/vapjs-abi.svg"
     alt="Dependency Status" />
   </a>
 
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-abi#info=devDependencies">
-    <img src="https://david-dm.org/ethjs/ethjs-abi/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/vapjs/vapjs-abi#info=devDependencies">
+    <img src="https://david-dm.org/vapjs/vapjs-abi/dev-status.svg" alt="devDependency Status" />
   </a>
 
   <!-- Build Status -->
-  <a href="https://travis-ci.org/ethjs/ethjs-abi">
-    <img src="https://travis-ci.org/ethjs/ethjs-abi.svg"
+  <a href="https://travis-ci.org/vapjs/vapjs-abi">
+    <img src="https://travis-ci.org/vapjs/vapjs-abi.svg"
     alt="Build Status" />
   </a>
 
   <!-- NPM Version -->
-  <a href="https://www.npmjs.org/package/ethjs-abi">
-    <img src="http://img.shields.io/npm/v/ethjs-abi.svg"
+  <a href="https://www.npmjs.org/package/vapjs-abi">
+    <img src="http://img.shields.io/npm/v/vapjs-abi.svg"
     alt="NPM version" />
   </a>
 
   <!-- Test Coverage -->
-  <a href="https://coveralls.io/r/ethjs/ethjs-abi">
-    <img src="https://coveralls.io/repos/github/ethjs/ethjs-abi/badge.svg" alt="Test Coverage" />
+  <a href="https://coveralls.io/r/vapjs/vapjs-abi">
+    <img src="https://coveralls.io/repos/github/vapjs/vapjs-abi/badge.svg" alt="Test Coverage" />
   </a>
 
   <!-- Javascript Style -->
@@ -44,7 +44,7 @@ Note, this package is experimental, and is not ready for production use.
 ## Usage
 
 ```js
-const abi = require('ethjs-abi');
+const abi = require('vapjs-abi');
 const SimpleStoreABI = [{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"get","outputs":[{"name":"storeValue","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_newValue","type":"uint256"},{"indexed":false,"name":"_sender","type":"address"}],"name":"SetComplete","type":"event"}];
 
 
@@ -120,30 +120,30 @@ Please help better the ecosystem by submitting issues and pull requests to defau
 
 ## Guides
 
-You'll find more detailed information on using `ethjs-abi` and tailoring it to your needs in our guides:
+You'll find more detailed information on using `vapjs-abi` and tailoring it to your needs in our guides:
 
 - [User guide](docs/user-guide.md) - Usage, configuration, FAQ and complementary tools.
-- [Developer guide](docs/developer-guide.md) - Contributing to `ethjs-abi` and writing your own code and coverage.
+- [Developer guide](docs/developer-guide.md) - Contributing to `vapjs-abi` and writing your own code and coverage.
 
 ## Help out
 
 There is always a lot of work to do, and will have many rules to maintain. So please help out in any way that you can:
 
-- Create, enhance, and debug ethjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
+- Create, enhance, and debug vapjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
 - Improve documentation.
 - Chime in on any open issue or pull request.
-- Open new issues about your ideas for making `ethjs-abi` better, and pull requests to show us how your idea works.
+- Open new issues about your ideas for making `vapjs-abi` better, and pull requests to show us how your idea works.
 - Add new tests to *absolutely anything*.
 - Create or contribute to ecosystem tools, like modules for encoding or contracts.
 - Spread the word.
 
-We communicate via [issues](https://github.com/ethjs/ethjs-abi/issues) and [pull requests](https://github.com/ethjs/ethjs-abi/pulls).
+We communicate via [issues](https://github.com/vapjs/vapjs-abi/issues) and [pull requests](https://github.com/vapjs/vapjs-abi/pulls).
 
 ## Important documents
 
 - [Changelog](CHANGELOG.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [License](https://raw.githubusercontent.com/ethjs/ethjs-abi/master/LICENSE)
+- [License](https://raw.githubusercontent.com/vapjs/vapjs-abi/master/LICENSE)
 
 ## Licence
 
