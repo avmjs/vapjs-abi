@@ -1,4 +1,4 @@
-var rlp = require('rlp');
+var rlp = require('@vaporyjs/rlp');
 var BN = require('bn.js');
 var hash = require('hash.js');
 

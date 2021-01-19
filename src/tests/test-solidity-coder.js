@@ -1,6 +1,6 @@
 var solc = require('solc');
-var ethereumVm = require('ethereumjs-vm');
-var ethereumUtil = require('ethereumjs-util');
+var vaporyVm = require('vaporyjs-vm');
+var vaporyUtil = require('vaporyjs-util');
 var BN = require('bn.js');
 
 var utils = require('./utils.js');
@@ -162,24 +162,24 @@ module.exports = function(test) {
         if (!normalizedValues) { normalizedValues = values; }
 
         // First make sure we agree with ourself
-        var ethersData = encodeParams(types, values);
-        var ethersValues = decodeParams(types, ethersData);
+        var vaporsData = encodeParams(types, values);
+        var vaporsValues = decodeParams(types, vaporsData);
 
         // Convert the result object into an Array
-        var ethersValuesArray = [];
-        for (var i = 0; ethersValues[i] !== undefined; i++) {
-            ethersValuesArray.push(ethersValues[i]);
+        var vaporsValuesArray = [];
+        for (var i = 0; vaporsValues[i] !== undefined; i++) {
+            vaporsValuesArray.push(vaporsValues[i]);
         }
 
-        var okSelf = recursiveEqual(normalizedValues, ethersValuesArray);
+        var okSelf = recursiveEqual(normalizedValues, vaporsValuesArray);
         test.ok(okSelf, "self encode/decode failed");
         if (!okSelf) {
-            console.log('okSelf', okSelf, types, values, normalizedValues, ethersValues, ethersValuesArray);
+            console.log('okSelf', okSelf, types, values, normalizedValues, vaporsValues, vaporsValuesArray);
         }
     }
 
 
-    // Test cases: https://github.com/ethereum/solidity.js/blob/master/test/coder.decodeParam.js
+    // Test cases: https://github.com/vaporyco/solidity.js/blob/master/test/coder.decodeParam.js
     check(['int'], [new BN(1)]);
     check(['int'], [new BN(16)]);
     check(['int'], [new BN(-1)]);

@@ -1,13 +1,13 @@
-## ethjs-abi
+## vapjs-abi
 
-Just method and event encoding and decoding from the [`ethers-wallet`](https://github.com/ethers-io/ethers-wallet).
+Just method and event encoding and decoding from the [`vapors-wallet`](https://github.com/vaporsjs/vapors-wallet).
 
 Note, this package is experimental, incomplete and is under construction.
 
 ## Usage
 
 ```
-const abi = require('ethjs-abi');
+const abi = require('vapjs-abi');
 const SimpleStoreABI = [{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"set","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"get","outputs":[{"name":"storeValue","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_newValue","type":"uint256"},{"indexed":false,"name":"_sender","type":"address"}],"name":"SetComplete","type":"event"}];
 
 
