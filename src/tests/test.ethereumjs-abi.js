@@ -7,7 +7,7 @@ const BigNumber = require('bignumber.js');
 const encodeParams = require('../index.js').encodeParams;
 const decodeParams = require('../index.js').decodeParams;
 
-// Official test vectors from https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI
+// Official test vectors from https://github.com/vaporyco/wiki/wiki/Vapory-Contract-ABI
 
 /*
 describe('official test vector 1 (encoding)', function () {
@@ -593,7 +593,7 @@ describe('converting to serpent types', function () {
 
 describe('utf8 handling', function () {
   it('should encode latin and extensions', function () {
-    var a = abi.rawEncode([ 'string' ], [ 'ethereum számítógép' ]).toString('hex')
+    var a = abi.rawEncode([ 'string' ], [ 'vapory számítógép' ]).toString('hex')
     var b = '00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000017657468657265756d20737ac3a16dc3ad74c3b367c3a970000000000000000000'
     assert.equal(a, b)
   })
@@ -603,7 +603,7 @@ describe('utf8 handling', function () {
     assert.equal(a, b)
   })
   it('should decode latin and extensions', function () {
-    var a = 'ethereum számítógép'
+    var a = 'vapory számítógép'
     var b = abi.rawDecode([ 'string' ], new Buffer('00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000017657468657265756d20737ac3a16dc3ad74c3b367c3a970000000000000000000', 'hex'))
     assert.equal(a, b[0])
   })

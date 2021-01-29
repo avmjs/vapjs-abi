@@ -1,8 +1,8 @@
 var webpack = require('webpack'); // eslint-disable-line
 
 var env = process.env.NODE_ENV;   // eslint-disable-line
-var filename = 'ethjs-abi';      // eslint-disable-line
-var library = 'ethAbi';          // eslint-disable-line
+var filename = 'vapjs-abi';      // eslint-disable-line
+var library = 'vapAbi';          // eslint-disable-line
 var config = {                    // eslint-disable-line
   module: {
     loaders: [

@@ -1,17 +1,17 @@
 # Developer Guide
 
-All information regarding contributing to and progressing `ethjs-abi` module can be found in this document.
+All information regarding contributing to and progressing `vapjs-abi` module can be found in this document.
 
 ## Install
 
 ```
-npm install --save ethjs-abi
+npm install --save vapjs-abi
 ```
 
 ## Install from Source
 
 ```
-git clone http://github.com/ethjs/ethjs-abi
+git clone http://github.com/vapjs/vapjs-abi
 npm install
 ```
 
@@ -61,7 +61,7 @@ The build staging for this module is as follows:
 All module source code is found in the `src` directory. All module helper scripts can be found in the `scripts` folder. These will not need to be touched, and are purely configuration for this repository.
 
 ```
-./ethjs-abi
+./vapjs-abi
   ./.github
   ./dist
   ./lib
@@ -78,13 +78,13 @@ Note, the `./lib` dir is generated from the babel build staging. `./coverage` is
 
 ## NPM Practice
 
-Across all `ethjs-` repos, we enforce version hardening (i.e. "0.0.3" not "^0.0.3"). We want to reduce potential hazardous install changes from dependancies as much as possible to ensure package preformace, testing, security and design. Please make sure all your commits and PR's are version hardend if you are installing or removing new packages.
+Across all `vapjs-` repos, we enforce version hardening (i.e. "0.0.3" not "^0.0.3"). We want to reduce potential hazardous install changes from dependancies as much as possible to ensure package preformace, testing, security and design. Please make sure all your commits and PR's are version hardend if you are installing or removing new packages.
 
 After build staging it is the `lib` folder which actually gets published to NPM. This allows for easy inclusion into other modules which may not use babel transpiling or which may not support es2015+.
 
 ## NPM/Node Version Requirements
 
-`ethjs` requires you have:
+`vapjs` requires you have:
   - `nodejs` -v 6.5.0+
   - `npm` -v 3.0+
 
@@ -92,7 +92,7 @@ This is a requirement to run, test, lint and build this module.
 
 ## Webpack
 
-`ethjs` uses webpack across all its browser focused repos. Webpack is used to package down project files into distribution builds for the browser. You can see the builds it produces by going to the [dist](dist) folder.
+`vapjs` uses webpack across all its browser focused repos. Webpack is used to package down project files into distribution builds for the browser. You can see the builds it produces by going to the [dist](dist) folder.
 
 Read more about webpack here:
 https://github.com/webpack/docs
@@ -103,18 +103,18 @@ Hash: 4fa0358f53cd22b7449f
 Version: webpack 2.1.0-beta.15
 Time: 1047ms
            Asset    Size  Chunks             Chunk Names
-    ethjs-abi.js  263 kB       0  [emitted]  main
-ethjs-abi.js.map  322 kB       0  [emitted]  main
+    vapjs-abi.js  263 kB       0  [emitted]  main
+vapjs-abi.js.map  322 kB       0  [emitted]  main
     + 13 hidden modules
 
-> ethjs-abi@0.1.2 build:umd:min /home/nick/github/ethjs-abi
+> vapjs-abi@0.1.2 build:umd:min /home/nick/github/vapjs-abi
 > cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress
 
 Hash: d64adbab3f85ed9aab80                                                           
 Version: webpack 2.1.0-beta.15
 Time: 4184ms
            Asset    Size  Chunks             Chunk Names
-ethjs-abi.min.js  118 kB       0  [emitted]  main
+vapjs-abi.min.js  118 kB       0  [emitted]  main
     + 13 hidden modules
 
 ## Changelog
@@ -123,11 +123,11 @@ All relevant changes are notated in the `CHANGELOG.md` file, moniter this file f
 
 ## Travis-ci and Coveralls Practice
 
-Across all `ethjs-` repos, we enforce mandatory travis-ci and coveralls testing. We never `commit to master`. As a general policy, Coveralls.io results must always be above 95% for any `ethjs-` PR or commit. We want to ensure complete coverage across the board.
+Across all `vapjs-` repos, we enforce mandatory travis-ci and coveralls testing. We never `commit to master`. As a general policy, Coveralls.io results must always be above 95% for any `vapjs-` PR or commit. We want to ensure complete coverage across the board.
 
 ## Contributing
 
-Please help better the ecosystem by submitting issues and pull requests. We need all the help we can get to build the absolute best linting standards and utilities. We follow the AirBNB linting standard. Please read more about contributing to `ethjs-abi` in the `.github/CONTRIBUTING.md`.
+Please help better the ecosystem by submitting issues and pull requests. We need all the help we can get to build the absolute best linting standards and utilities. We follow the AirBNB linting standard. Please read more about contributing to `vapjs-abi` in the `.github/CONTRIBUTING.md`.
 
 ## Licence
 
